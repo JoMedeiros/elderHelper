@@ -1,3 +1,36 @@
 page-chat {
 
 }
+
+.message{
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 4px;
+    white-space: pre-wrap;
+}
+
+.other-message{
+    background: #3880ff;
+    color: white;
+    margin-right: 30px;
+}
+
+.my-message {
+    background: #7044ff;
+    color: white;
+}
+
+.time {
+    color: #fdfdfd;
+    float: right;
+    font-size: small;
+}
+
+.msg-btn {
+
+}
+
+.msg-input {
+    width: 100%;
+    resize: none;
+}

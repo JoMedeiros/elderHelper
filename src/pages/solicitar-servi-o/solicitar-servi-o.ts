@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { SolicitarAulaDeInstrumentoPage } from '../solicitar-aula-de-instrumento/solicitar-aula-de-instrumento';
 
 @Component({
   selector: 'page-solicitar-servi-o',
@@ -8,6 +9,9 @@ import { NavController } from 'ionic-angular';
 export class SolicitarServiOPage {
 
   constructor(public navCtrl: NavController) {
+  }
+  goToSolicitarAulaDeInstrumento() {
+    this.navCtrl.push(SolicitarAulaDeInstrumentoPage);
   }
   
 }

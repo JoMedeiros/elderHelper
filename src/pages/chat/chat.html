@@ -1,8 +1,43 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Chat
+      Chat com {{ otherUser }}
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page9"></ion-content>
+<ion-content padding id="page9">
+  <ion-grid>
+    <ion-row *ngFor="let message of messages">
+      <ion-col size-9 *ngIf="currentUser !== message.user"
+      class="message other-message">
+        <b>{{ message.user }}</b><br>
+        <span>{{ message.text }}</span>
+        <div *ngIf="message.video" style="position:relative;overflow:hidden;padding-bottom:56.25%;height:0;" id="ajuda-video1">
+          <iframe src="https://www.youtube.com/embed/O53-AcqNhpg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen width="560" height="315" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+        </div>
+        <div class="time" text-right>{{ message.createdAt}}</div>
+      </ion-col>
+
+      <ion-col offset-2 size-9 *ngIf="currentUser === message.user"
+      class="message my-message">
+        <b>{{ message.user }}</b><br>
+        <span>{{ message.text }}</span>
+        <div class="time" text-right>{{ message.createdAt}}</div>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+
+  <ion-list id="footer">
+    <ion-item color="none" id="inCio-list-item13">
+      <textarea autozise maxRows="3" [(ngModel)]="newMsg" class="msg-input"></textarea>
+      <button expand="block" fill="clear" color="primary" [disabled]="newMsg===''"
+      (click)="sendMessage()" class="msg-btn" item-left>
+        <ion-icon name="send" slot="icon-only"></ion-icon>
+      </button>
+
+    </ion-item>
+  </ion-list>
+</ion-footer>
